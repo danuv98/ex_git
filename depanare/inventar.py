@@ -31,6 +31,8 @@ def pe_servicii(tinte):
         grupe[serviciu] = []
         grupe[serviciu].append(port)
 
+    return grupe
+
 
 def peste_prag(tinte, prag):
     """Lista gazdelor cu un port mai mare decat pragul."""
@@ -45,7 +47,7 @@ def peste_prag(tinte, prag):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("fisier")
-    p.add_argument("--prag", default=1024)
+    p.add_argument("--prag", type=int, default=1024)
     a = p.parse_args()
 
     tinte = incarca(a.fisier)
